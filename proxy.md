@@ -1,8 +1,8 @@
 ### Introduction
 
-- **Protocol Name:** ExampleProtocol
+- **Protocol Name:** Aave Token (AAVE)
 - **Category:** DeFi
-- **Smart Contract:** Proxy Contract
+- **Smart Contract:** InitializableUpgradeabilityProxy.sol
 
 ### Function Analysis
 
@@ -35,7 +35,7 @@ The `initialize` function is designed to set up the proxy contract with an initi
    - The function ensures that the implementation address has not been set by checking `_implementation() == address(0)`.
 
 2. **Slot Verification:**
-   - It asserts that `IMPLEMENTATION_SLOT` matches the calculated slot value using `keccak256`. This ensures that the storage slot for the implementation address is correctly set up.
+   - It asserts that `IMPLEMENTATION_SLOT` matches the calculated slot value using `keccak256`. This ensures that the storage slot for the implementation address   is correctly set up.
 
 3. **Setting Implementation:**
    - The `_setImplementation(_logic)` function sets the logic contract address where the actual business logic resides.
@@ -57,4 +57,4 @@ The `initialize` function is designed to set up the proxy contract with an initi
 
 ### Conclusion
 
-The `initialize` function in the ExampleProtocol's proxy contract demonstrates the use of `delegatecall` to set up an upgradeable smart contract system. This function ensures proper initialization of the proxy contract with an initial logic contract and optional setup data, contributing to the flexibility and upgradeability of the DeFi protocol. By leveraging `delegatecall`, the function maintains the state consistency of the proxy while allowing the execution of logic contract functions during the initialization phase.
+The `initialize` function in the contract demonstrates the use of `delegatecall` to set up an upgradeable smart contract system. This function ensures proper initialization of the proxy contract with an initial logic contract and optional setup data, contributing to the flexibility and upgradeability of the DeFi protocol. By leveraging `delegatecall`, the function maintains the state consistency of the proxy while allowing the execution of logic contract functions during the initialization phase.
